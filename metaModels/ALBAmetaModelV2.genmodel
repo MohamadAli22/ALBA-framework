@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/ir.ui.se.mdserg.alba2/src" modelPluginID="ir.ui.se.mdserg.alba2"
+    modelName="Application" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>ALBAmetaModelV2.emf</foreignModel>
+  <genPackages prefix="Application" disposableProviderFactory="true" ecorePackage="ALBAmetaModelV2.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ALBAmetaModelV2.ecore#//MapType">
+      <genEnumLiterals ecoreEnumLiteral="ALBAmetaModelV2.ecore#//MapType/googleMap"/>
+      <genEnumLiterals ecoreEnumLiteral="ALBAmetaModelV2.ecore#//MapType/bingMap"/>
+      <genEnumLiterals ecoreEnumLiteral="ALBAmetaModelV2.ecore#//MapType/openLayer"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ALBAmetaModelV2.ecore#//cardItemTypes">
+      <genEnumLiterals ecoreEnumLiteral="ALBAmetaModelV2.ecore#//cardItemTypes/ImageView"/>
+      <genEnumLiterals ecoreEnumLiteral="ALBAmetaModelV2.ecore#//cardItemTypes/TextView"/>
+    </genEnums>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//APP">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//APP/hasConf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//APP/hasMainActivity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//APP/appName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//APP/hasTheme"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//APP/hasFrag"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//APP/MAhasFragment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//APP/TBhasFragment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//APP/NDhasFragment"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//Config">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Config/packageName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Config/icon"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Config/minSdkVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Config/targetSdkVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Config/versionCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Config/versionName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Config/buildToolsVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Config/compileSdkVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Config/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//Theme">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Theme/colorPrimaryDark"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Theme/colorPrimary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Theme/colorAccent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Theme/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//MainActivity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//MainActivity/hasNav"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//MainActivity/hasBar"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//MainActivity/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//NavigationDrawer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//NavigationDrawer/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//NavigationDrawer/headerDrawableSrcName"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//TabBar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//TabBar/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//Fragment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Fragment/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//Fragment/hasApi"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//LoginFragment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//LoginFragment/generateEmailValidationCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//LoginFragment/generatePhoneNumberValidationCode"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//CategoryFragment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//CategoryFragment/hasCardView"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//CategoryFragment/colNumber"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//LocationsFragment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//LocationsFragment/hasSubCatTabBar"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//LocationsFragment/hasMap"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//LocationsFragment/hasRecView"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//LocationDetailsFragment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//LocationDetailsFragment/showRatingOption"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//LocationDetailsFragment/showCommentOption"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//LocationDetailsFragment/showCallOption"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//LocationDetailsFragment/showNavigationOption"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//LocationDetailsFragment/showAddCommentOption"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//LocationDetailsFragment/showAddToBookmarkOption"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//Api">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Api/baseAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Api/linkAddress"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//Api/hasResItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//Api/hasReqItem"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//ResponseItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//ResponseItem/responseKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//ResponseItem/responseType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//ResponseItem/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//RequestItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//RequestItem/requestKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//RequestItem/requestType"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//Map">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Map/apiKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Map/mapType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Map/bindCardsToPins"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Map/zoomLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Map/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//LocationsRecyclerView">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//LocationsRecyclerView/hasCV"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//LocationsRecyclerView/isVertical"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//LocationsRecyclerView/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//CardView">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//CardView/layoutFileName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//CardView/hasCardItem"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//CardView/linkTo"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//CardItems">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//CardItems/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//CardItems/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//CardItems/connectTo"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//SubCategoryTabbar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//SubCategoryTabbar/tabTextColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//SubCategoryTabbar/tabIndicatorColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//SubCategoryTabbar/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//SubCategoryTabbar/hasAPi"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//SubCategoryTabbar/hasTabs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//SubCategoryTabbar/tabSelectedTextColor"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//Tab">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//Tab/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//Tab/getItemIdFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//Tab/getItemNameFrom"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//MAtoFrag">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//MAtoFrag/mtofTarget"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//MAtoFrag/mtofSource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//MAtoFrag/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//TBtoFrag">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//TBtoFrag/tbtofSource"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//TBtoFrag/tbtofTarget"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//TBtoFrag/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ALBAmetaModelV2.ecore#//NDtoFrag">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//NDtoFrag/ndtofTarget"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ALBAmetaModelV2.ecore#//NDtoFrag/ndtofSource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ALBAmetaModelV2.ecore#//NDtoFrag/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

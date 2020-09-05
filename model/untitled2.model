@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ASCII"?>
+<www.alba2.mdserg.se.ui.ir:APP xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:www.alba2.mdserg.se.ui.ir="http://www.alba2.mdserg.se.ui.ir" xmi:id="_0hb2sNyuEeeSbPAVUwdRzA" appName="scroll">
+  <hasConf xmi:id="_2EuOYNyuEeeSbPAVUwdRzA" packageName="com.yourdomain.scroll"/>
+  <hasMainActivity xmi:id="_6FfVINyuEeeSbPAVUwdRzA">
+    <hasBar xmi:id="_5uTGoOJgEeeaR9mlECdw_A"/>
+  </hasMainActivity>
+  <hasTheme xmi:id="_3FsjMNyuEeeSbPAVUwdRzA" colorPrimaryDark="#FF8F00" colorPrimary="#FFC107" colorAccent="#FFEB3B"/>
+  <hasFrag xsi:type="www.alba2.mdserg.se.ui.ir:CategoryFragment" xmi:id="_NeslgNyvEeeSbPAVUwdRzA" name="catFrg" colNumber="3">
+    <hasApi xmi:id="_k18_0NyvEeeSbPAVUwdRzA" baseAddress="http://hiiranco.ir/" linkAddress="API/hiIranApi/public/getCategories">
+      <hasResItem xmi:id="_wc4msNyvEeeSbPAVUwdRzA" responseKey="link" responseType="String"/>
+      <hasResItem xmi:id="_x2XiINyvEeeSbPAVUwdRzA" responseKey="name" responseType="String"/>
+      <hasResItem xmi:id="_C0nzANywEeeSbPAVUwdRzA" responseKey="id" responseType="String"/>
+      <hasReqItem xmi:id="_pDMcUNyvEeeSbPAVUwdRzA" requestKey="email" requestType="String"/>
+      <hasReqItem xmi:id="_sdex4NyvEeeSbPAVUwdRzA" requestKey="mobile" requestType="String"/>
+      <hasReqItem xmi:id="_svbdgNyvEeeSbPAVUwdRzA" requestKey="pass" requestType="String"/>
+      <hasReqItem xmi:id="_s5XcoNyvEeeSbPAVUwdRzA" requestKey="id" requestType="int"/>
+    </hasApi>
+    <hasCardView xmi:id="_KGMjMNywEeeSbPAVUwdRzA" layoutFileName="card_category_list_item" linkTo="_O9ZYINyvEeeSbPAVUwdRzA">
+      <hasCardItem xmi:id="_EFVxEN5-EeeDXeai_PTW6A" id="category_image" connectTo="_wc4msNyvEeeSbPAVUwdRzA"/>
+      <hasCardItem xmi:id="_Eo5KEN5-EeeDXeai_PTW6A" type="TextView" id="txt_category" connectTo="_EOb-QNyzEeeSbPAVUwdRzA"/>
+    </hasCardView>
+  </hasFrag>
+  <hasFrag xsi:type="www.alba2.mdserg.se.ui.ir:LocationDetailsFragment" xmi:id="_OMCzsNyvEeeSbPAVUwdRzA" name="locDetFrg" showCommentOption="true" showCallOption="true" showAddCommentOption="true" showAddToBookmarkOption="true"/>
+  <hasFrag xsi:type="www.alba2.mdserg.se.ui.ir:LocationsFragment" xmi:id="_O9ZYINyvEeeSbPAVUwdRzA" name="locFrg">
+    <hasApi xmi:id="_UCa7wNywEeeSbPAVUwdRzA" baseAddress="http://hiiranco.ir/" linkAddress="API/hiIranApi/public/getLocations">
+      <hasResItem xmi:id="_kXtvMNywEeeSbPAVUwdRzA" responseKey="locTitle" responseType="String"/>
+      <hasResItem xmi:id="_3FKs0NywEeeSbPAVUwdRzA" responseKey="locLatitude" responseType="double" defaultValue="0.0"/>
+      <hasResItem xmi:id="_3M2CINywEeeSbPAVUwdRzA" responseKey="locLongtitude" responseType="double" defaultValue="0.0"/>
+      <hasResItem xmi:id="_3SpvMNywEeeSbPAVUwdRzA" responseKey="locTitle" responseType="String"/>
+      <hasResItem xmi:id="_gxOUMNyxEeeSbPAVUwdRzA" responseKey="picLink" responseType="String"/>
+      <hasResItem xmi:id="_g4DU8NyxEeeSbPAVUwdRzA" responseKey="locNotes" responseType="String"/>
+      <hasResItem xmi:id="_g-Sf0NyxEeeSbPAVUwdRzA" responseKey="locAddress" responseType="String"/>
+      <hasResItem xmi:id="_jyGEMNyxEeeSbPAVUwdRzA" responseKey="locPhoneNumber" responseType="String"/>
+      <hasReqItem xmi:id="_bn77oNywEeeSbPAVUwdRzA" requestKey="email" requestType="String"/>
+      <hasReqItem xmi:id="_dReFQNywEeeSbPAVUwdRzA" requestKey="pass" requestType="String"/>
+      <hasReqItem xmi:id="_dY3twNywEeeSbPAVUwdRzA" requestKey="mobile" requestType="String"/>
+      <hasReqItem xmi:id="_de-80NywEeeSbPAVUwdRzA" requestKey="subCatId" requestType="String"/>
+      <hasReqItem xmi:id="_dku_gNywEeeSbPAVUwdRzA" requestKey="langId" requestType="String"/>
+    </hasApi>
+    <hasSubCatTabBar xmi:id="_V4aNANywEeeSbPAVUwdRzA">
+      <hasAPi xmi:id="_6cc8QNyxEeeSbPAVUwdRzA" baseAddress="http://hiiranco.ir/" linkAddress="API/hiIranApi/public/getSubCategories">
+        <hasResItem xmi:id="_EOb-QNyzEeeSbPAVUwdRzA" responseKey="name" responseType="String"/>
+        <hasResItem xmi:id="_EqGmkNyzEeeSbPAVUwdRzA" responseKey="id" responseType="double"/>
+        <hasReqItem xmi:id="_-rM0oNyxEeeSbPAVUwdRzA" requestKey="email" requestType="String"/>
+        <hasReqItem xmi:id="_AtfcgNyyEeeSbPAVUwdRzA" requestKey="pass" requestType="String"/>
+        <hasReqItem xmi:id="_A1Vw8NyyEeeSbPAVUwdRzA" requestKey="mobile" requestType="String"/>
+        <hasReqItem xmi:id="_A8pS0NyyEeeSbPAVUwdRzA" requestKey="categoryId" requestType="String"/>
+        <hasReqItem xmi:id="_BDI8YNyyEeeSbPAVUwdRzA" requestKey="langId" requestType="String"/>
+      </hasAPi>
+      <hasTabs xmi:id="_kcL4INyzEeeSbPAVUwdRzA" name="tab" getItemIdFrom="_EqGmkNyzEeeSbPAVUwdRzA" getItemNameFrom="_EOb-QNyzEeeSbPAVUwdRzA"/>
+    </hasSubCatTabBar>
+    <hasMap xmi:id="_UfWvYNywEeeSbPAVUwdRzA" bindCardsToPins="true"/>
+    <hasRecView xmi:id="_U6ucwNywEeeSbPAVUwdRzA" isVertical="true" name="recViewVert">
+      <hasCV xmi:id="_S7p2ENyyEeeSbPAVUwdRzA" layoutFileName="card_locations_on_map2" linkTo="_OMCzsNyvEeeSbPAVUwdRzA">
+        <hasCardItem xmi:id="_XDU2ENyyEeeSbPAVUwdRzA" type="TextView" id="title" connectTo="_3SpvMNywEeeSbPAVUwdRzA"/>
+        <hasCardItem xmi:id="_Xkg3kNyyEeeSbPAVUwdRzA" type="TextView" id="address" connectTo="_g-Sf0NyxEeeSbPAVUwdRzA"/>
+        <hasCardItem xmi:id="_X_9dcNyyEeeSbPAVUwdRzA" id="imageView_card" connectTo="_gxOUMNyxEeeSbPAVUwdRzA"/>
+      </hasCV>
+    </hasRecView>
+    <hasRecView xmi:id="_Va0SENywEeeSbPAVUwdRzA" name="recViewHoriz">
+      <hasCV xmi:id="_rjYZwNyyEeeSbPAVUwdRzA" layoutFileName="card_locations_on_map" linkTo="_OMCzsNyvEeeSbPAVUwdRzA">
+        <hasCardItem xmi:id="_rjYZwdyyEeeSbPAVUwdRzA" type="TextView" id="title" connectTo="_3SpvMNywEeeSbPAVUwdRzA"/>
+        <hasCardItem xmi:id="_rjYZwtyyEeeSbPAVUwdRzA" type="TextView" id="address" connectTo="_g-Sf0NyxEeeSbPAVUwdRzA"/>
+        <hasCardItem xmi:id="_rjYZw9yyEeeSbPAVUwdRzA" id="imageView_card" connectTo="_gxOUMNyxEeeSbPAVUwdRzA"/>
+      </hasCV>
+    </hasRecView>
+  </hasFrag>
+  <TBhasFragment xmi:id="_3T4SoOJgEeeaR9mlECdw_A" tbtofSource="_5uTGoOJgEeeaR9mlECdw_A" tbtofTarget="_NeslgNyvEeeSbPAVUwdRzA" name="catFrgCategory"/>
+  <TBhasFragment xmi:id="_7DXcIOJgEeeaR9mlECdw_A" tbtofSource="_5uTGoOJgEeeaR9mlECdw_A" tbtofTarget="_O9ZYINyvEeeSbPAVUwdRzA" name="catFrgLocations"/>
+  <TBhasFragment xmi:id="_VvFoUOKXEeeUoLpvbuPVZw" tbtofSource="_5uTGoOJgEeeaR9mlECdw_A" tbtofTarget="_OMCzsNyvEeeSbPAVUwdRzA" name="catFrgDetails"/>
+</www.alba2.mdserg.se.ui.ir:APP>

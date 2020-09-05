@@ -1,0 +1,55 @@
+[% var conf = Config.all.first ; %]
+package [%=conf.packageName%].dbClasses;
+
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Property;
+import org.greenrobot.greendao.annotation.Generated;
+
+/**
+ * Created by mohamadAli on 11/9/2017.
+ */
+@Entity
+public class LocationZone {
+    @Id
+    private long id;
+    private String name;
+    private String nickName;
+    private String link;
+    @Generated(hash = 1661099263)
+    public LocationZone(long id, String name, String nickName, String link) {
+        this.id = id;
+        this.name = name;
+        this.nickName = nickName;
+        this.link = link;
+    }
+    @Generated(hash = 1930639962)
+    public LocationZone() {
+    }
+    public long getId() {
+        return this.id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
+    public String getName() {
+        return this.name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getNickName() {
+        return this.nickName;
+    }
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+    public String getLink() {
+        return this.link;
+    }
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+
+}

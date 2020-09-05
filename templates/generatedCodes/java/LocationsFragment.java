@@ -1,0 +1,176 @@
+package com.yourdomain.appname;
+
+
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+/**
+ * Created by ALBA.
+ */
+public class LocationsFragment extends Fragment {
+    View root;
+
+
+    TextView tv_title;
+    TextView tv_ratingNum;
+    RatingBar ratingBar;
+    TextView note;
+    MapView mapView;
+    SliderLayout slideShow;
+    boolean showingAllOfNotes = false;
+    GoogleMap gmap;
+    TextView address;
+    TextView phone;
+    TextView accessTime;
+    static String phoneNumber;
+    static String st_title;
+    static String st_note;
+    static String st_address;
+    static String st_pic;
+    static double lon;
+    static double lat;
+    static String category;
+
+
+    Toolbar toolbar;
+    CollapsingToolbarLayout ctl;
+
+
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        root = inflater.inflate(R.layout.fragment_location_details,null);
+        makeItReady(savedInstanceState);
+        return root;
+    }
+    
+    public void makeItReady(@Nullable Bundle savedInstanceState){
+    
+        tv_title = (TextView) root.findViewById(R.id.textView2);
+        tv_ratingNum = (TextView) root.findViewById(R.id.textView3);
+        ratingBar = (RatingBar) root.findViewById(R.id.ratingBar);
+        note = (TextView) root.findViewById(R.id.textView);
+        mapView = (MapView) root.findViewById(R.id.shop_mapVieww);
+        slideShow = (SliderLayout) root.findViewById(R.id.shop_slider);
+        tv_title.setText(st_title);
+
+        DefaultSliderView pic = new DefaultSliderView(getContext());
+        pic.image("http://hiiranco.ir/img/" + st_pic);
+        slideShow.removeAllSliders();
+        slideShow.addSlider(pic);
+
+        final String textOfNote = st_note;
+        if (textOfNote!=null && textOfNote.length() > 100) {
+            note.setText(textOfNote.substring(0, 80) + "...");
+            note.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (showingAllOfNotes) {
+                        note.setText(textOfNote.substring(0, 80) + "...");
+                        showingAllOfNotes = false;
+                    } else {
+                        note.setText(textOfNote);
+                        showingAllOfNotes = true;
+                    }
+                }
+            });
+        } else {
+            note.setText(textOfNote);
+        }
+
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
+                gmap = googleMap;
+                gmap.setMaxZoomPreference(16.0f);
+                gmap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lon), 16.0f));
+                gmap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_blue_positionmark))
+                        .anchor(0.0f ,1.0f)
+                        .position(new LatLng(lat,lon)));
+
+                gmap.getUiSettings().setAllGesturesEnabled(false);
+                mapView.onResume();
+            }
+        });
+
+        address = (TextView) root.findViewById(R.id.shop_address);
+        address.setText(st_address);
+        phone = (TextView) root.findViewById(R.id.shop_phoneNumber);
+        phone.setText(phoneNumber);
+        accessTime = (TextView) root.findViewById(R.id.shop_openingTime);
+        accessTime.setText("opens until 8pm");
+        accessTime.setTextColor(getResources().getColor(R.color.accent));
+
+        root.findViewById(R.id.shop_call).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                phoneNumber = phone.getText().toString();
+                if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{Manifest.permission.CALL_PHONE},
+                            10);
+                    return;
+                } else {
+                    Intent intent = new Intent(Intent.ACTION_CALL);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("mobilePhone", phone.getText().toString());
+                    intent.setData(Uri.parse("tel:" + bundle.getString("mobilePhone")));
+                    view.getContext().startActivity(intent);
+                }
+            }
+        });
+        root.findViewById(R.id.shop_sendComment).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //todo complete here
+            }
+        });
+        
+        root.findViewById(R.id.addToBookMark).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                //todo complete here
+            }
+        });
+        root.findViewById(R.id.showComment).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                //todo complete here
+            }
+        });
+
+    
+    }
+    
+      @Override
+    public void onStop() {
+        super.onStop();
+        MapFragment.category_id = category;
+        MainActivity.menu.getItem(2).setVisible(false);
+    }
+}

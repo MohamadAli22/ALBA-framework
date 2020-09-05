@@ -1,0 +1,65 @@
+[% var conf = Config.all.first ; %]
+[% var nav = NavigationDrawer.all.first ; %]
+[% var tab = TabBar.all.first ; %]
+[% var locDetails = LocationDetailsFragment.all.first ; %]
+[% var map = LocationsFragment.all.first ; %]
+[% var cat = CategoryFragment.all.first ; %]
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' 
+
+
+android {
+    compileSdkVersion [%=conf.compileSdkVersion%]
+    buildToolsVersion "[%=conf.buildToolsVersion%]"
+
+    defaultConfig {
+        applicationId "[%=conf.packageName%]"
+        minSdkVersion [%=conf.minSdkVersion%]
+        targetSdkVersion [%=conf.targetSdkVersion%]
+        versionCode [%=conf.versionCode%]
+        versionName "[%=conf.versionName%]"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+greendao {
+    schemaVersion 1000
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:design:25.0.1'
+    compile 'com.google.android.gms:play-services-maps:11.4.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.google.code.gson:gson:2.8.0' 
+    compile "com.mikepenz:iconics-core:2.8.0@aar"
+    compile 'com.mikepenz:fontawesome-typeface:4.7.0.1@aar'
+    compile 'org.greenrobot:greendao:3.2.2'
+    compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.2'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    [% if(locDetails <> null ){ %]
+    compile 'com.android.support.constraint:constraint-layout:1.1.0-beta1'
+    compile 'com.daimajia.slider:library:1.1.5@aar'
+    compile 'com.nineoldandroids:library:2.4.0'
+    [% } %]
+    compile('com.mikepenz:materialdrawer:5.3.6@aar') {
+        transitive = true
+    }
+    [% if(cat <> null or map <> null){ %]
+    compile 'com.android.support:recyclerview-v7:25.0.0'
+    compile 'com.android.support:cardview-v7:25.0.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    [% } %]
+    [% if(tab <> null){ %]
+    compile 'com.github.devlight.navigationtabbar:navigationtabbar:1.2.5'
+    [% } %]
+}

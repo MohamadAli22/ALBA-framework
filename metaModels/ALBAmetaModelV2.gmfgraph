@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="Application">
+  <figures name="Default">
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="MAtoFragFigureTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="CardViewLinkToFigureTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="CardItemsConnectToFigureTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="TabGetItemIdFromFigureTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="TabGetItemNameFromFigureTargetDecoration"/>
+    <descriptors name="ConfigFigure">
+      <actualFigure xsi:type="gmfgraph:CustomFigure" name="ConfigFigure" qualifiedClassName="figures.ConfigFigure">
+        <children xsi:type="gmfgraph:Label" name="ConfigLabelFigure" text="Config"/>
+      </actualFigure>
+      <accessors accessor="getFigureConfigLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="ThemeFigure">
+      <actualFigure xsi:type="gmfgraph:CustomFigure" name="ThemeFigure" qualifiedClassName="figures.ThemeFigure">
+        <children xsi:type="gmfgraph:Label" name="ThemeLabelFigure" text="Theme"/>
+      </actualFigure>
+      <accessors accessor="getFigureThemeLabelFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="MainActivityFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="MainActivityFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="MainActivityLabelFigure" text="MainActivity">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="MainActivityHasNavCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="MainActivityHasBarCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureMainActivityLabelFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+      <accessors accessor="getMainActivityHasNavCompartmentFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+      <accessors accessor="getMainActivityHasBarCompartmentFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors name="NavigationDrawerFigure">
+      <actualFigure xsi:type="gmfgraph:CustomFigure" name="NavigationDrawerFigure" qualifiedClassName="figures.NavigationDrawerFigure">
+        <children xsi:type="gmfgraph:Label" name="NavigationDrawerLabelFigure" text="NavigationDrawer"/>
+      </actualFigure>
+      <accessors accessor="getFigureNavigationDrawerLabelFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="TabBarFigure">
+      <actualFigure xsi:type="gmfgraph:CustomFigure" name="TabBarFigure" qualifiedClassName="figures.TabBarFigure">
+        <children xsi:type="gmfgraph:Label" name="TabBarLabelFigure" text="TabBar"/>
+      </actualFigure>
+      <accessors accessor="getFigureTabBarLabelFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="FragmentFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="FragmentFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="FragmentLabelFigure" text="Fragment">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="FragmentHasApiCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureFragmentLabelFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+      <accessors accessor="getFragmentHasApiCompartmentFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="LoginFragmentFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="LoginFragmentFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="LoginFragmentLabelFigure" text="LoginFragment">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="LoginFragmentHasApiCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureLoginFragmentLabelFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+      <accessors accessor="getLoginFragmentHasApiCompartmentFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="CategoryFragmentFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="CategoryFragmentFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="CategoryFragmentLabelFigure" text="CategoryFragment">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="CategoryFragmentHasApiCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="CategoryFragmentHasCardViewCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureCategoryFragmentLabelFigure" figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+      <accessors accessor="getCategoryFragmentHasApiCompartmentFigure" figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
+      <accessors accessor="getCategoryFragmentHasCardViewCompartmentFigure" figure="//@figures.0/@descriptors.7/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors name="LocationsFragmentFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="LocationsFragmentFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="LocationsFragmentLabelFigure" text="LocationsFragment">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="LocationsFragmentHasApiCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="LocationsFragmentHasSubCatTabBarCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="LocationsFragmentHasMapCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="LocationsFragmentHasRecViewCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureLocationsFragmentLabelFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+      <accessors accessor="getLocationsFragmentHasApiCompartmentFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.1"/>
+      <accessors accessor="getLocationsFragmentHasSubCatTabBarCompartmentFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.2"/>
+      <accessors accessor="getLocationsFragmentHasMapCompartmentFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.3"/>
+      <accessors accessor="getLocationsFragmentHasRecViewCompartmentFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.4"/>
+    </descriptors>
+    <descriptors name="LocationDetailsFragmentFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="LocationDetailsFragmentFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="LocationDetailsFragmentLabelFigure" text="LocationDetailsFragment">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="LocationDetailsFragmentHasApiCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureLocationDetailsFragmentLabelFigure" figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+      <accessors accessor="getLocationDetailsFragmentHasApiCompartmentFigure" figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="ApiFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ApiFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="ApiLabelFigure" text="Api">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="ApiHasResItemCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="ApiHasReqItemCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureApiLabelFigure" figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+      <accessors accessor="getApiHasResItemCompartmentFigure" figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
+      <accessors accessor="getApiHasReqItemCompartmentFigure" figure="//@figures.0/@descriptors.10/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors name="ResponseItemFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ResponseItemFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="ResponseItemLabelFigure" text="ResponseItem"/>
+      </actualFigure>
+      <accessors accessor="getFigureResponseItemLabelFigure" figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="RequestItemFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="RequestItemFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="RequestItemLabelFigure" text="RequestItem"/>
+      </actualFigure>
+      <accessors accessor="getFigureRequestItemLabelFigure" figure="//@figures.0/@descriptors.12/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="MapFigure">
+      <actualFigure xsi:type="gmfgraph:CustomFigure" name="MapFigure" qualifiedClassName="figures.MapFigure">
+        <children xsi:type="gmfgraph:Label" name="MapLabelFigure" text="Map"/>
+      </actualFigure>
+      <accessors accessor="getFigureMapLabelFigure" figure="//@figures.0/@descriptors.13/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="LocationsRecyclerViewFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="LocationsRecyclerViewFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="LocationsRecyclerViewLabelFigure" text="LocationsRecyclerView">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="LocationsRecyclerViewHasCVCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureLocationsRecyclerViewLabelFigure" figure="//@figures.0/@descriptors.14/@actualFigure/@children.0"/>
+      <accessors accessor="getLocationsRecyclerViewHasCVCompartmentFigure" figure="//@figures.0/@descriptors.14/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="CardViewFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="CardViewFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="CardViewLabelFigure" text="CardView">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="CardViewHasCardItemCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureCardViewLabelFigure" figure="//@figures.0/@descriptors.15/@actualFigure/@children.0"/>
+      <accessors accessor="getCardViewHasCardItemCompartmentFigure" figure="//@figures.0/@descriptors.15/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="CardItemsFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="CardItemsFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="CardItemsLabelFigure" text="CardItems"/>
+      </actualFigure>
+      <accessors accessor="getFigureCardItemsLabelFigure" figure="//@figures.0/@descriptors.16/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="SubCategoryTabbarFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="SubCategoryTabbarFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="SubCategoryTabbarLabelFigure" text="SubCategoryTabbar">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="SubCategoryTabbarHasAPiCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="SubCategoryTabbarHasTabsCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureSubCategoryTabbarLabelFigure" figure="//@figures.0/@descriptors.17/@actualFigure/@children.0"/>
+      <accessors accessor="getSubCategoryTabbarHasAPiCompartmentFigure" figure="//@figures.0/@descriptors.17/@actualFigure/@children.1"/>
+      <accessors accessor="getSubCategoryTabbarHasTabsCompartmentFigure" figure="//@figures.0/@descriptors.17/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors name="TabFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="TabFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TabLabelFigure" text="Tab"/>
+      </actualFigure>
+      <accessors accessor="getFigureTabLabelFigure" figure="//@figures.0/@descriptors.18/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="MAtoFragFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="MAtoFragFigure" lineWidth="2" targetDecoration="//@figures.0/@figures.0"/>
+    </descriptors>
+    <descriptors name="TBtoFragFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TBtoFragFigure" lineWidth="2" lineKind="LINE_DASH"/>
+    </descriptors>
+    <descriptors name="NDtoFragFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="NDtoFragFigure" lineWidth="2" lineKind="LINE_DASH"/>
+    </descriptors>
+    <descriptors name="CardViewLinkToFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="CardViewLinkToFigure" targetDecoration="//@figures.0/@figures.1"/>
+    </descriptors>
+    <descriptors name="CardViewLinkToExternalLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="CardViewLinkToExternalLabel" text="linkedTo"/>
+    </descriptors>
+    <descriptors name="CardItemsConnectToFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="CardItemsConnectToFigure" targetDecoration="//@figures.0/@figures.2"/>
+    </descriptors>
+    <descriptors name="CardItemsConnectToExternalLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="CardItemsConnectToExternalLabel" text="connectedTo"/>
+    </descriptors>
+    <descriptors name="TabGetItemIdFromFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TabGetItemIdFromFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.3"/>
+    </descriptors>
+    <descriptors name="TabGetItemIdFromExternalLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="TabGetItemIdFromExternalLabel" text="has"/>
+    </descriptors>
+    <descriptors name="TabGetItemNameFromFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TabGetItemNameFromFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.4"/>
+    </descriptors>
+    <descriptors name="TabGetItemNameFromExternalLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="TabGetItemNameFromExternalLabel" text="has"/>
+    </descriptors>
+  </figures>
+  <nodes name="Config" figure="ConfigFigure"/>
+  <nodes name="Theme" figure="ThemeFigure"/>
+  <nodes name="MainActivity" figure="MainActivityFigure"/>
+  <nodes name="NavigationDrawer" figure="NavigationDrawerFigure"/>
+  <nodes name="TabBar" figure="TabBarFigure"/>
+  <nodes name="Fragment" figure="FragmentFigure"/>
+  <nodes name="LoginFragment" figure="LoginFragmentFigure"/>
+  <nodes name="CategoryFragment" figure="CategoryFragmentFigure"/>
+  <nodes name="LocationsFragment" figure="LocationsFragmentFigure"/>
+  <nodes name="LocationDetailsFragment" figure="LocationDetailsFragmentFigure"/>
+  <nodes name="Api" figure="ApiFigure"/>
+  <nodes name="ResponseItem" figure="ResponseItemFigure"/>
+  <nodes name="RequestItem" figure="RequestItemFigure"/>
+  <nodes name="Map" figure="MapFigure"/>
+  <nodes name="LocationsRecyclerView" figure="LocationsRecyclerViewFigure"/>
+  <nodes name="CardView" figure="CardViewFigure"/>
+  <nodes name="CardItems" figure="CardItemsFigure"/>
+  <nodes name="SubCategoryTabbar" figure="SubCategoryTabbarFigure"/>
+  <nodes name="Tab" figure="TabFigure"/>
+  <connections name="MAtoFrag" figure="MAtoFragFigure"/>
+  <connections name="TBtoFrag" figure="TBtoFragFigure"/>
+  <connections name="NDtoFrag" figure="NDtoFragFigure"/>
+  <connections name="CardViewLinkTo" figure="CardViewLinkToFigure"/>
+  <connections name="CardItemsConnectTo" figure="CardItemsConnectToFigure"/>
+  <connections name="TabGetItemIdFrom" figure="TabGetItemIdFromFigure"/>
+  <connections name="TabGetItemNameFrom" figure="TabGetItemNameFromFigure"/>
+  <compartments name="MainActivityHasNavCompartment" figure="MainActivityFigure" accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+  <compartments name="MainActivityHasBarCompartment" figure="MainActivityFigure" accessor="//@figures.0/@descriptors.2/@accessors.2"/>
+  <compartments name="FragmentHasApiCompartment" figure="FragmentFigure" collapsible="true" accessor="//@figures.0/@descriptors.5/@accessors.1"/>
+  <compartments name="LoginFragmentHasApiCompartment" figure="LoginFragmentFigure" collapsible="true" accessor="//@figures.0/@descriptors.6/@accessors.1"/>
+  <compartments name="CategoryFragmentHasApiCompartment" figure="CategoryFragmentFigure" collapsible="true" accessor="//@figures.0/@descriptors.7/@accessors.1"/>
+  <compartments name="CategoryFragmentHasCardViewCompartment" figure="CategoryFragmentFigure" accessor="//@figures.0/@descriptors.7/@accessors.2"/>
+  <compartments name="LocationsFragmentHasApiCompartment" figure="LocationsFragmentFigure" collapsible="true" accessor="//@figures.0/@descriptors.8/@accessors.1"/>
+  <compartments name="LocationsFragmentHasSubCatTabBarCompartment" figure="LocationsFragmentFigure" accessor="//@figures.0/@descriptors.8/@accessors.2"/>
+  <compartments name="LocationsFragmentHasMapCompartment" figure="LocationsFragmentFigure" accessor="//@figures.0/@descriptors.8/@accessors.3"/>
+  <compartments name="LocationsFragmentHasRecViewCompartment" figure="LocationsFragmentFigure" accessor="//@figures.0/@descriptors.8/@accessors.4"/>
+  <compartments name="LocationDetailsFragmentHasApiCompartment" figure="LocationDetailsFragmentFigure" collapsible="true" accessor="//@figures.0/@descriptors.9/@accessors.1"/>
+  <compartments name="ApiHasResItemCompartment" figure="ApiFigure" accessor="//@figures.0/@descriptors.10/@accessors.1"/>
+  <compartments name="ApiHasReqItemCompartment" figure="ApiFigure" accessor="//@figures.0/@descriptors.10/@accessors.2"/>
+  <compartments name="LocationsRecyclerViewHasCVCompartment" figure="LocationsRecyclerViewFigure" accessor="//@figures.0/@descriptors.14/@accessors.1"/>
+  <compartments name="CardViewHasCardItemCompartment" figure="CardViewFigure" accessor="//@figures.0/@descriptors.15/@accessors.1"/>
+  <compartments name="SubCategoryTabbarHasAPiCompartment" figure="SubCategoryTabbarFigure" collapsible="true" accessor="//@figures.0/@descriptors.17/@accessors.1"/>
+  <compartments name="SubCategoryTabbarHasTabsCompartment" figure="SubCategoryTabbarFigure" collapsible="true" accessor="//@figures.0/@descriptors.17/@accessors.2"/>
+  <labels name="ConfigLabel" figure="ConfigFigure" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="ThemeLabel" figure="ThemeFigure" elementIcon="false" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="MainActivityLabel" figure="MainActivityFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels name="NavigationDrawerLabel" figure="NavigationDrawerFigure" elementIcon="false" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels name="TabBarLabel" figure="TabBarFigure" elementIcon="false" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels name="FragmentLabel" figure="FragmentFigure" accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels name="LoginFragmentLabel" figure="LoginFragmentFigure" accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels name="CategoryFragmentLabel" figure="CategoryFragmentFigure" accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+  <labels name="LocationsFragmentLabel" figure="LocationsFragmentFigure" accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+  <labels name="LocationDetailsFragmentLabel" figure="LocationDetailsFragmentFigure" accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+  <labels name="ApiLabel" figure="ApiFigure" accessor="//@figures.0/@descriptors.10/@accessors.0"/>
+  <labels name="ResponseItemLabel" figure="ResponseItemFigure" accessor="//@figures.0/@descriptors.11/@accessors.0"/>
+  <labels name="RequestItemLabel" figure="RequestItemFigure" accessor="//@figures.0/@descriptors.12/@accessors.0"/>
+  <labels name="MapLabel" figure="MapFigure" elementIcon="false" accessor="//@figures.0/@descriptors.13/@accessors.0"/>
+  <labels name="LocationsRecyclerViewLabel" figure="LocationsRecyclerViewFigure" accessor="//@figures.0/@descriptors.14/@accessors.0"/>
+  <labels name="CardViewLabel" figure="CardViewFigure" accessor="//@figures.0/@descriptors.15/@accessors.0"/>
+  <labels name="CardItemsLabel" figure="CardItemsFigure" accessor="//@figures.0/@descriptors.16/@accessors.0"/>
+  <labels name="SubCategoryTabbarLabel" figure="SubCategoryTabbarFigure" accessor="//@figures.0/@descriptors.17/@accessors.0"/>
+  <labels name="TabLabel" figure="TabFigure" accessor="//@figures.0/@descriptors.18/@accessors.0"/>
+  <labels name="CardViewLinkToExternalLabel" figure="CardViewLinkToExternalLabelFigure" elementIcon="false"/>
+  <labels name="CardItemsConnectToExternalLabel" figure="CardItemsConnectToExternalLabelFigure" elementIcon="false"/>
+  <labels name="TabGetItemIdFromExternalLabel" figure="TabGetItemIdFromExternalLabelFigure" elementIcon="false"/>
+  <labels name="TabGetItemNameFromExternalLabel" figure="TabGetItemNameFromExternalLabelFigure" elementIcon="false"/>
+</gmfgraph:Canvas>

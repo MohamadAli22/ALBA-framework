@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel>
+		<properties/>
+		<struct>
+			<and abstract="true" mandatory="true" name="DSL features">
+				<and name="location services">
+					<and name="Google map">
+						<feature mandatory="true" name="location pins"/>
+					</and>
+					<feature name="user location"/>
+				</and>
+				<and name="user interface">
+					<feature name="cards"/>
+					<feature name="colors"/>
+					<feature name="icon"/>
+					<feature name="predesigned fragments"/>
+				</and>
+				<and name="external interaction">
+					<and name="API calls">
+						<feature name="requests"/>
+						<feature name="responses"/>
+					</and>
+				</and>
+				<and name="design patterns">
+					<feature name="navigation drawer"/>
+					<feature name="tab bar"/>
+				</and>
+				<feature name="permissions"/>
+				<and name="data base tables">
+					<feature mandatory="true" name="locations table"/>
+					<feature mandatory="true" name="subCategory table"/>
+					<feature mandatory="true" name="category table"/>
+				</and>
+			</and>
+		</struct>
+		<constraints/>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>

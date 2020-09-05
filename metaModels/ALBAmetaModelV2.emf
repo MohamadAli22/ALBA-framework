@@ -1,0 +1,219 @@
+@namespace(uri="http://www.alba2.mdserg.se.ui.ir", prefix="www.alba2.mdserg.se.ui.ir")
+package Application;
+
+@gmf.diagram
+class APP {
+  val Config[1] hasConf;
+  val MainActivity[1] hasMainActivity;
+  attr String appName = "appName";
+  val Theme hasTheme;
+  val Fragment[*] hasFrag;
+  val MAtoFrag[*] MAhasFragment;
+  val TBtoFrag[*] TBhasFragment;
+  val NDtoFrag[*] NDhasFragment;
+}
+
+@gmf.node(figure="figures.ConfigFigure", label.icon="false", label="name")
+class Config {
+  attr String packageName = "com.yourDomain.appName";
+  attr String icon = "ic_launcher";
+  attr String minSdkVersion = "19";
+  attr String targetSdkVersion = "25";
+  attr String versionCode = "1";
+  attr String versionName = "1.0";
+  attr String buildToolsVersion = "25.0.0";
+  attr String compileSdkVersion = "25";
+  attr String name = "myConfig";
+}
+
+@gmf.node(figure="figures.ThemeFigure", label.icon="false", label="name")
+class Theme {
+  attr String colorPrimaryDark = "#8E24AA";
+  attr String colorPrimary = "#6A1B9A";
+  attr String colorAccent = "#C2185B";
+  attr String name = "MyTheme";
+}
+
+@gmf.node(label="name", tool.name="MainActivity")
+class MainActivity {
+
+  @gmf.compartment(collapsible="false")
+  val NavigationDrawer hasNav;
+
+  @gmf.compartment(collapsible="false")
+  val TabBar hasBar;
+  attr String name = "MyMainActivity";
+}
+
+@gmf.node(figure="figures.NavigationDrawerFigure", label.icon="false", label="name")
+class NavigationDrawer {
+  attr String name = "MyNav";
+  attr String headerDrawableSrcName = "navheader";
+}
+
+@gmf.node(figure="figures.TabBarFigure", label.icon="false", label="name")
+class TabBar {
+  attr String name = "MyTabBar";
+}
+
+@gmf.node(label="name")
+class Fragment {
+  attr String name = "";
+
+  @gmf.compartment(layout="list", collapsible="true")
+  val Api hasApi;
+}
+
+class LoginFragment extends Fragment {
+  attr boolean generateEmailValidationCode;
+  attr boolean generatePhoneNumberValidationCode;
+}
+
+class CategoryFragment extends Fragment {
+
+  @gmf.compartment(collapsible="false")
+  val CardView hasCardView;
+  attr int colNumber = 2;
+}
+
+class LocationsFragment extends Fragment {
+
+  @gmf.compartment(layout="list", collapsible="false")
+  val SubCategoryTabbar hasSubCatTabBar;
+
+  @gmf.compartment(layout="list", collapsible="false")
+  val Map hasMap;
+
+  @gmf.compartment(layout="list", collapsible="false")
+  val LocationsRecyclerView[0..2] hasRecView;
+}
+
+class LocationDetailsFragment extends Fragment {
+  attr boolean showRatingOption;
+  attr boolean showCommentOption;
+  attr boolean showCallOption;
+  attr boolean showNavigationOption;
+  attr boolean showAddCommentOption;
+  attr boolean showAddToBookmarkOption;
+}
+
+@gmf.node(label="baseAddress")
+class Api {
+  attr String[1] baseAddress = "http://medvisit.ir/";
+  attr String[1] linkAddress = "/API_UINAV/hiIranApi/public/...";
+
+  @gmf.compartment(layout="list", collapsible="false")
+  val ResponseItem[+] hasResItem;
+
+  @gmf.compartment(layout="list", collapsible="false")
+  val RequestItem[+] hasReqItem;
+}
+
+@gmf.node(label="responseKey")
+class ResponseItem {
+  attr String responseKey;
+  attr String responseType;
+  attr String defaultValue = "notAvailable";
+}
+
+@gmf.node(label="requestKey")
+class RequestItem {
+  attr String requestKey;
+  attr String requestType;
+}
+
+@gmf.node(figure="figures.MapFigure", label.icon="false", label="name")
+class Map {
+  attr String apiKey = "AIzaSyCQ2IuVejeAjpoZA9w-d9IJ14xcoAy7Yd4";
+  attr MapType mapType;
+  attr boolean bindCardsToPins;
+  attr int zoomLevel = 16;
+  attr String name = "MyMap";
+}
+
+@gmf.node(label="name")
+class LocationsRecyclerView {
+
+  @gmf.compartment(layout="list", collapsible="false")
+  val CardView[1] hasCV;
+  attr boolean isVertical = false;
+  attr String name;
+}
+
+@gmf.node(label="layoutFileName")
+class CardView {
+  attr String layoutFileName = "?.xml";
+
+  @gmf.compartment(layout="list", collapsible="false")
+  val CardItems[+] hasCardItem;
+
+  @gmf.link(target.decoration="arrow", label="linkedTo", style="solid")
+  ref Fragment linkTo;
+}
+
+@gmf.node(label="id")
+class CardItems {
+  attr cardItemTypes type;
+  attr String ~id;
+
+  @gmf.link(target.decoration="arrow", label="connectedTo", style="solid")
+  ref ResponseItem connectTo;
+}
+
+enum MapType {
+  googleMap = 0;
+  bingMap = 0;
+  openLayer = 0;
+}
+
+enum cardItemTypes {
+  ImageView = 0;
+  TextView = 0;
+}
+
+@gmf.node(label="name")
+class SubCategoryTabbar {
+  attr String tabTextColor;
+  attr String tabIndicatorColor;
+  attr String name = "MySubCat";
+
+  @gmf.compartment(layout="list", collapsible="true")
+  val Api hasAPi;
+
+  @gmf.compartment(layout="list", collapsible="true")
+  val Tab[1] hasTabs;
+  attr String tabSelectedTextColor;
+}
+
+@gmf.node(label="name")
+class Tab {
+  attr String name = "MyTab";
+
+  @gmf.link(target.decoration="arrow", label="has", style="dash")
+  ref ResponseItem getItemIdFrom;
+
+  @gmf.link(target.decoration="arrow", label="has", style="dash")
+  ref ResponseItem getItemNameFrom;
+}
+
+@gmf.link(source="mtofSource", target="mtofTarget", style="solid", width="2", target.decoration="arrow")
+class MAtoFrag {
+  ref Fragment[1] mtofTarget;
+  ref MainActivity mtofSource;
+  attr String name;
+}
+
+@gmf.link(source="tbtofSource", target="tbtofTarget", style="dash", width="2")
+class TBtoFrag {
+  ref TabBar tbtofSource;
+  ref Fragment[1] tbtofTarget;
+  attr String name = "";
+}
+
+@gmf.link(source="ndtofSource", target="ndtofTarget", style="dash", width="2")
+class NDtoFrag {
+  ref Fragment[1] ndtofTarget;
+  ref NavigationDrawer ndtofSource;
+  attr String name;
+}
+

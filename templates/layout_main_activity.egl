@@ -1,0 +1,71 @@
+[% var tab = TabBar.all.first ; %]
+[% var nav = NavigationDrawer.all.first ; %]
+[% var conf = Config.all.first ; %]
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
+    tools:context="[%=conf.packageName%].MainActivity">
+
+<android.support.v7.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:background="@color/primary"
+    android:layoutDirection="rtl"
+    android:layout_width="match_parent"
+    android:layout_height="56dp">
+
+</android.support.v7.widget.Toolbar>
+
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scrollbarStyle="insideInset"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        />
+
+
+
+[% if(nav <> null){ %]
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+        <FrameLayout
+            android:id="@+id/fragment"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent" />
+    </RelativeLayout>
+
+[% } %]
+
+
+
+[% if(tab <> null){ %]
+    
+
+
+    <com.gigamole.navigationtabbar.ntb.NavigationTabBar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/ntb"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentStart="true"/>
+
+
+    [% } %]
+
+
+
+</RelativeLayout>

@@ -1,0 +1,177 @@
+rule r0
+	transform conf : Config
+	{
+	template : "buildGradleModule.egl" 
+	target : "generatedCodes/buildGradleModule/build.gradle"
+}
+
+rule r1 
+	transform conf : Config
+	{
+	template : "manifest.egl" 
+	target : "generatedCodes/manifests/AndroidManifest.xml"
+}
+
+
+rule r2 
+	transform main : MainActivity
+	{
+	template : "MainActivity.egl" 
+	target : "generatedCodes/java/MainActivity.java"
+}
+
+rule r3 
+	transform main : MainActivity
+	{
+	template : "layout_main_activity.egl" 
+	target : "generatedCodes/res/layout/activity_main.xml"
+}
+
+
+rule r4 
+	transform login : LoginFragment
+	{
+	template : "LoginFragment.egl" 
+	target : "generatedCodes/java/LoginFragment.java"
+}
+
+rule r5 
+	transform login : LoginFragment
+	{
+	template : "layout_login_fragment.egl" 
+	target : "generatedCodes/res/layout/fragment_login.xml"
+}
+
+
+rule r6
+	transform location : LocationDetailsFragment
+	{
+	template : "locationDetails.egl" 
+	target : "generatedCodes/java/LocationsFragment.java"
+}
+
+rule r7 
+	transform location : LocationDetailsFragment
+	{
+	template : "layout_location_details.egl" 
+	target : "generatedCodes/res/layout/fragment_location_details.xml"
+}
+
+
+rule r8
+	transform category : CategoryFragment
+	{
+	template : "CatFragment.egl" 
+	target : "generatedCodes/java/CategoryFragment.java"
+}
+
+rule r9 
+	transform category : CategoryFragment
+	{
+	template : "layout_category_fragment.egl" 
+	target : "generatedCodes/res/layout/fragment_category.xml"
+}
+
+
+rule r10
+	transform map : LocationsFragment
+	{
+	template : "MapFragment.egl" 
+	target : "generatedCodes/java/MapFragment.java"
+}
+
+
+rule r11
+	transform map : LocationsFragment
+	{
+	template : "layout_map_fragment.egl" 
+	target : "generatedCodes/res/layout/fragment_map.xml"
+}
+
+
+rule r12
+	transform map : LocationsFragment
+	{
+	template : "layout_card_on_map.egl" 
+	target : "generatedCodes/res/layout/card_locations_on_map.xml"
+}
+
+rule r13
+	transform category : CategoryFragment
+	{
+	template : "layout_card_categories.egl" 
+	target : "generatedCodes/res/layout/card_category_list_item.xml"
+}
+
+rule r14
+	transform frag : Fragment
+	{
+	template : "Fragment.egl" 
+	target : "generatedCodes/java/Fragment_"+frag.name+".java"
+}
+
+rule r15
+	transform map : LocationsFragment
+	{
+	template : "MapLocationFragment.egl" 
+	target : "generatedCodes/java/MapLocationFragment.java"
+}
+
+rule r16
+	transform map : LocationsFragment
+	{
+	template : "layout_fragment_map_2.egl" 
+	target : "generatedCodes/res/layout/fragment_map_location.xml"
+}
+
+rule r17
+	transform map : LocationsFragment
+	{
+	template : "db_Location.egl" 
+	target : "generatedCodes/java/dbClasses/Location.java"
+}
+
+rule r18
+	transform map : LocationsFragment
+	{
+	template : "db_LocationCategory.egl" 
+	target : "generatedCodes/java/dbClasses/LocationCategory.java"
+}
+
+rule r19
+	transform map : LocationsFragment
+	{
+	template : "db_LocationSubCategory.egl" 
+	target : "generatedCodes/java/dbClasses/LocationSubCategory.java"
+}
+
+rule r20
+	transform map : LocationsFragment
+	{
+	template : "db_LocationZone.egl" 
+	target : "generatedCodes/java/dbClasses/LocationZone.java"
+}
+
+rule r21
+	transform map : LocationsFragment
+	{
+	template : "color.egl" 
+	target : "generatedCodes/res/values/colors.xml"
+}
+
+rule r22
+	transform map : LocationsFragment
+	{
+	template : "buildGradleApp.egl" 
+	target : "generatedCodes/buildGradleApp/build.gradle"
+}
+
+rule r23
+	transform map : LocationsFragment
+	{
+	template : "menu.egl" 
+	target : "generatedCodes/res/menu/search.xml"
+}
+
+
+

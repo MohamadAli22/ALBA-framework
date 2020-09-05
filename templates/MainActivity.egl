@@ -1,0 +1,536 @@
+[% var conf = Config.all.first ; %]
+[% var nav = NavigationDrawer.all.first ; %]
+[% var tab = TabBar.all.first ; %]
+[% var logFrag = LoginFragment.all.first ; %]
+[% var selCatFrag = CategoryFragment.all.first ; %]
+[% var mapFrag = LocationsFragment.all.first ; %]
+[% var locFrag = LocationDetailsFragment.all.first ; %]
+package [%=conf.packageName%];
+
+import android.Manifest;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.Point;
+import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.Display;
+import android.view.Gravity;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
+[% if( tab <> null ){ %]
+import com.gigamole.navigationtabbar.ntb.NavigationTabBar;
+[%}%]
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.mikepenz.fontawesome_typeface_library.FontAwesome;
+[% if( nav <> null ){ %]
+import com.mikepenz.materialdrawer.AccountHeader;
+import com.mikepenz.materialdrawer.AccountHeaderBuilder;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IProfile;
+[%}%]
+import [%=conf.packageName%].dbClasses.DaoMaster;
+import [%=conf.packageName%].dbClasses.DaoSession;
+
+import org.greenrobot.greendao.database.Database;
+import org.greenrobot.greendao.database.DatabaseOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by ALBA.
+ */
+public class MainActivity extends AppCompatActivity {
+
+	[% if( nav <> null ){ %]
+    static Drawer drawer;
+    static AccountHeader headerResult;
+    [% } %]
+    static int toolbarWidth = 0 ;
+    static DaoSession daoSession = null;
+    static DaoSession daoSessionRead = null;
+    
+    static Menu menu;
+
+	[% if( tab <> null ){ %]
+	static ViewPager viewPager;
+	static int loginIndex = -1;
+	static int locationIndex = -1;
+	static int locationListIndex = -1;
+	static int locationDetailIndex = -1;
+	static int categoryIndex = -1;
+	SectionsPagerAdapter mSectionsPagerAdapter;
+	[% } %]
+
+    @Override
+    protected void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+        
+        
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        toolbarWidth = size.x;
+
+        setSupportActionBar(toolbar);
+[%if(nav<>null){%]
+[% for( frg in Fragment.all){
+	if(frg.eClass.name.equals("LoginFragment")){ %]
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment, new LoginFragment(), "LogIn").commit();
+        
+[% break; }else if(frg.eClass.name.equals("CategoryFragment")){%]
+    
+    	FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment, new CategoryFragment(), "CategoryFragment").commit();
+    
+[%break; }else if(frg.eClass.name.equals("LocationsFragment")){%]
+
+		FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment, new LocationsFragment(), "LocationsFragment").commit();
+
+[%break;}else{%]
+	
+		FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment, new Fragment_[%=frg.name%](), "frg").commit();
+
+[%	break;}
+}}%]
+
+
+
+[% for( src in NDtoFrag.all){
+var c = 4;
+	if(src.ndtofTarget.eClass.name.equals("CategoryFragment")){ selCatFrag=src.ndtofTarget; %]
+		PrimaryDrawerItem categoryNavItem = new PrimaryDrawerItem().withIdentifier(2).withName("[%=selCatFrag.name%]").withIcon(FontAwesome.Icon.faw_list).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+            @Override
+            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, new CategoryFragment(), "category").commit();
+                return false;
+            }
+        });
+	[%}else if(src.ndtofTarget.eClass.name.equals("LocationsFragment")){ mapFrag = src.ndtofTarget;%]
+		PrimaryDrawerItem mapNavItem = new PrimaryDrawerItem().withIdentifier(3).withName("[%=mapFrag.name%]").withIcon(FontAwesome.Icon.faw_map).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+            @Override
+            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, new MapFragment(), "maps").commit();
+                return false;
+            }
+        });
+	[%}else if(src.ndtofTarget.eClass.name.equals("LoginFragment")){ logFrag = src.ndtofTarget;%]
+		PrimaryDrawerItem loginNavItem = new PrimaryDrawerItem().withIdentifier(1).withName("[%=logFrag.name%]").withIcon(FontAwesome.Icon.faw_user_circle).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+              @Override
+              public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                  FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                  fragmentTransaction.replace(R.id.fragment, new LoginFragment(), "LogIn").commit();
+                  return false;
+              }
+          });
+		
+	[%}else{%]
+	
+//	PrimaryDrawerItem frg_[%=src.ndtofTarget.name%] = new PrimaryDrawerItem().withIdentifier([%=c%]).withName("[%=src.ndtofTarget.name%]").withIcon(FontAwesome.Icon.faw_user_circle).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+//             @Override
+//             public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+//                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//                fragmentTransaction.replace(R.id.fragment, new Fragment_[%=src.ndtofTarget.name%](), "t").commit();
+//               return false;
+//          }
+//     });
+		
+	
+	[%c++;}
+}%]        
+
+		[% if( nav <> null ){ %]
+        TextView ver = new TextView(this);
+        ver.setText("designed by MDD approach");
+        ver.setTextColor(Color.BLACK);
+
+
+        headerResult = new AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(R.color.colorPrimaryDark)
+                .withTextColorRes(R.color.md_white_1000)
+//                .addProfiles(def_profileDrawerItem)
+                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
+                    @Override
+                    public boolean onProfileChanged(View view, IProfile profile, boolean currentProfile) {
+                        return false;
+                    }
+                })
+                .withSelectionListEnabled(false)
+                .build();
+
+        drawer = new DrawerBuilder().withActivity(this)
+                .withToolbar(toolbar)
+                .withDrawerGravity(Gravity.RIGHT)
+                .withOnDrawerListener(new Drawer.OnDrawerListener() {
+                    @Override
+                    public void onDrawerOpened(View drawerView) {
+                        View view = getCurrentFocus();
+                        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                        if (view != null)
+                            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    }
+
+                    @Override
+                    public void onDrawerClosed(View drawerView) {
+
+                    }
+
+                    @Override
+                    public void onDrawerSlide(View drawerView, float slideOffset) {
+
+                    }
+                })
+                .addDrawerItems(  
+        [% if( logFrag <> null ){ %]
+        loginNavItem,
+        [% } %]
+        [% if( selCatFrag <> null ){ %]
+        categoryNavItem,
+        [% } %]
+        [% if( mapFrag <> null ){ %]
+        mapNavItem
+        [% } %]
+        		)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, final IDrawerItem drawerItem) {
+                        return false;
+                    }
+                })
+                .withAccountHeader(headerResult)
+                .withFooter(ver)
+                .withFooterDivider(true)
+                .build();
+    			[% } %]
+    			
+
+
+		[% if(tab <> null){ %]
+    	
+        NavigationTabBar navigationTabBar;
+        
+
+        navigationTabBar = (NavigationTabBar) findViewById(R.id.ntb);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+
+        final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
+        List<Fragment> frags = new ArrayList<>();
+        
+        
+[% var coun = 0; for( src in TBtoFrag.all){ 
+	if(src.tbtofTarget.eClass.name.equals("CategoryFragment")){ selCatFrag=src.tbtofTarget; %]
+	
+	 [% if( selCatFrag <> null ){ %]
+	 	categoryIndex=[%=coun%];
+        frags.add(new CategoryFragment());
+        models.add(
+                new NavigationTabBar.Model.Builder(
+                        getResources().getDrawable(R.mipmap.ic_launcher),
+                        Color.parseColor("#ec407a")
+                ).title("select category")
+                        .badgeTitle("state")
+                        .build()
+        );
+        [% } %]
+	
+	[%}else if(src.tbtofTarget.eClass.name.equals("LocationsFragment")){ mapFrag = src.tbtofTarget; %]
+	
+	[% if( mapFrag <> null ){ %]
+	locationIndex=[%=coun%];
+        frags.add(new MapFragment());
+        models.add(
+                new NavigationTabBar.Model.Builder(
+                        getResources().getDrawable(R.mipmap.ic_launcher),
+                        Color.parseColor("#4dd0e1")
+                ).title("map")
+                        .badgeTitle("with")
+                        .build()
+        );
+        [%coun++;%]
+        locationListIndex=[%=coun%];
+		frags.add(new MapLocationFragment());
+        models.add(
+                new NavigationTabBar.Model.Builder(
+                        getResources().getDrawable(R.mipmap.ic_launcher),
+                        Color.parseColor("#ab47bc")
+                ).title("MapLocationFragment")
+                        .badgeTitle("state")
+                        .build()
+        );
+        
+		[% } %]
+	
+	[%}else if(src.tbtofTarget.eClass.name.equals("LoginFragment")){ logFrag = src.tbtofTarget; %]
+	
+	[% if( logFrag <> null ){ %]
+	
+		loginIndex=[%=coun%];
+		frags.add(new LoginFragment());
+        models.add(
+                new NavigationTabBar.Model.Builder(
+                        getResources().getDrawable(R.mipmap.ic_launcher),
+                        Color.parseColor("#ab47bc")
+                ).title("login")
+                        .badgeTitle("state")
+                        .build()
+        );
+        [% } %]
+        
+	[%}else if(src.tbtofTarget.eClass.name.equals("LocationDetailsFragment")){ %]
+	
+		locationDetailIndex=[%=coun%];
+		frags.add(new LocationsFragment());
+        models.add(
+                new NavigationTabBar.Model.Builder(
+                        getResources().getDrawable(R.mipmap.ic_launcher),
+                        Color.parseColor("#ab47bc")
+                ).title("LocationDetailsFragment")
+                        .badgeTitle("state")
+                        .build()
+        );
+   
+	[%}else{%]
+	
+	frags.add(new Fragment_[%=src.tbtofTarget.name%]());
+        models.add(
+                new NavigationTabBar.Model.Builder(
+                        getResources().getDrawable(R.mipmap.ic_launcher),
+                        Color.parseColor("#ab47bc")
+                ).title("frg")
+                        .badgeTitle("state")
+                        .build()
+        );
+	
+	[%}
+	coun++;
+} %]    
+        
+        
+        
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),frags);
+        viewPager.setAdapter(mSectionsPagerAdapter);
+        navigationTabBar.setModels(models);
+        navigationTabBar.setViewPager(viewPager);
+
+
+        navigationTabBar.setIsTitled(true);
+        navigationTabBar.setIsTinted(true);
+        navigationTabBar.setIsBadgeUseTypeface(true);
+        navigationTabBar.setIsSwiped(true);
+        navigationTabBar.setBgColor(Color.BLACK);
+        navigationTabBar.setIconSizeFraction(0.5f);
+        
+        
+        
+        
+                navigationTabBar.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if(position==locationIndex){
+                    ((MapFragment)mSectionsPagerAdapter.listFragment.get(position)).makeItReady();
+                }else if (position==locationDetailIndex){
+                    ((LocationsFragment)mSectionsPagerAdapter.listFragment.get(position)).makeItReady(savedInstanceState);
+                }else if(position==locationListIndex){
+                    ((MapLocationFragment)mSectionsPagerAdapter.listFragment.get(position)).makeItReady();
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        
+        
+        
+    	[% } %]    			
+
+
+		DaoSession[] ds = startDB();
+        daoSession = ds[0];
+        daoSessionRead = ds[1];
+        getAllData();
+
+
+    }
+    
+    public DaoSession[] startDB(){
+        DatabaseOpenHelper helper = new DaoMaster.DevOpenHelper(this, "notes-db", null);
+        Database db = helper.getWritableDb();
+        DaoMaster daoMaster = new DaoMaster(db);
+        DaoSession[] daoSession = new DaoSession[2];
+        daoSession[0] = daoMaster.newSession();
+        Database db2 = helper.getReadableDb();
+        DaoMaster daoMaster2 = new DaoMaster(db2);
+        daoSession[1] = daoMaster2.newSession();
+        return daoSession;
+    }
+    
+    
+    public void getAllData(){
+    	//todo get data from server and save it in DB for offline usage
+    }
+    
+    
+    @Override
+    public void onBackPressed(){
+        if (getSupportFragmentManager().getBackStackEntryCount() == 1){
+            super.onBackPressed();
+        }
+        else {
+            getSupportFragmentManager().popBackStack();
+        }
+    }
+
+
+    /**
+     *
+     * @param requestCode code that you used when you send the request for permition
+     * @param permissions the permissions that we wanted to grant
+     * @param grantResults result of permissions
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+
+        if (requestCode == 12) {
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                    || ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                if(MapFragment.gmap != null)
+                    MapFragment.gmap.setMyLocationEnabled(true);
+
+            } else {
+                AlertDialog alert;
+                final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+                        dialog.dismiss();
+                        finish();
+                    }
+                });
+                builder.setTitle("sorry, we have to close the program");
+                alert = builder.create();
+                alert.show();
+            }
+        }
+
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            Bundle bundle = new Bundle();
+            bundle.putString("mobilePhone", LocationsFragment.phoneNumber);
+            intent.setData(Uri.parse("tel:" + bundle.getString("mobilePhone")));
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            startActivity(intent);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==R.id.app_bar_list){
+        	[%if(nav<>null){%]
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment, new MapLocationFragment(), "map2").addToBackStack("FB2").setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit();
+            [%}%]
+            [%if(tab<>null){%]
+            	viewPager.setCurrentItem(locationListIndex);
+            [%}%]
+        }else  if(item.getItemId()==R.id.app_bar_map){
+        [%if(nav<>null){%]
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment, new MapFragment(), "map2").addToBackStack("FB2").setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit();
+            [%}%]
+            [%if(tab<>null){%]
+            	viewPager.setCurrentItem(locationIndex);
+            [%}%]
+        }else if (item.getItemId() == R.id.app_bar_back){
+        [%if(nav<>null){%]
+            onBackPressed();
+            [%}%]
+            [%if(tab<>null){%]
+            	viewPager.setCurrentItem(locationIndex);
+            [%}%]
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    
+    
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        getMenuInflater().inflate(R.menu.search , menu);
+        this.menu = menu;
+        return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        GoogleApiAvailability gIsAvailable = GoogleApiAvailability.getInstance();
+        int error = gIsAvailable.isGooglePlayServicesAvailable(getApplicationContext());
+        if(gIsAvailable.getErrorDialog(this,error,error)!=null)
+            gIsAvailable.getErrorDialog(this,error,error).show();
+    }
+    
+    
+    [% if(tab <> null){ %]
+    public static class SectionsPagerAdapter extends FragmentStatePagerAdapter {
+        public List<Fragment> listFragment;
+
+        public SectionsPagerAdapter(FragmentManager fm, List<Fragment> listFragment) {
+            super(fm);
+            this.listFragment = listFragment;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            Log.d("position?","position is: "+position);
+            return listFragment.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return listFragment.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return "  ";
+        }
+    }
+    [% } %]
+}

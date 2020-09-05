@@ -1,0 +1,11 @@
+[% var conf = Config.all.first ; %]
+package [%=conf.packageName%];
+
+
+import android.support.v4.app.Fragment;
+
+
+
+public class [%=frag.name%] extends Fragment {
+    
+}

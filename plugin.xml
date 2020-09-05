@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ALBAmetaModelV2 -->
+      <package
+            uri="http://www.alba2.mdserg.se.ui.ir"
+            class="Application.ApplicationPackage"/>
+   </extension>
+
+</plugin>

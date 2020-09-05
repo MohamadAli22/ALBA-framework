@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Application" nsURI="http://www.alba2.mdserg.se.ui.ir" nsPrefix="www.alba2.mdserg.se.ui.ir">
+  <eClassifiers xsi:type="ecore:EClass" name="APP">
+    <eAnnotations source="gmf.diagram"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasConf" lowerBound="1"
+        eType="#//Config" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasMainActivity" lowerBound="1"
+        eType="#//MainActivity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="appName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="appName"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasTheme" eType="#//Theme"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MainActivity">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="tool.name" value="MainActivity"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasNav" eType="#//NavigationDrawer"
+        containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasBar" eType="#//TabBar"
+        containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="MyMainActivity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasFrag" upperBound="-1"
+        eType="#//Fragment" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Config">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="com.yourDomain.appName"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="ic_launcher"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minSdkVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="19"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetSdkVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="25"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildToolsVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="25.0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="compileSdkVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="25"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="myConfig"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationDrawer">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasFragment" lowerBound="1"
+        upperBound="-1" eType="#//Fragment" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="MyNav"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TabBar">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasFragment" lowerBound="1"
+        upperBound="-1" eType="#//Fragment" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="MyTabBar"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fragment">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasApi" eType="#//Api"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CategoryFragment" eSuperTypes="#//Fragment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasCardView" eType="#//CardView"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocationsFragment" eSuperTypes="#//Fragment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasMap" eType="#//Map"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasRecView" upperBound="2"
+        eType="#//LocationsRecyclerView" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasSubCatTabBar" eType="#//SubCategoryTabbar"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocationDetailsFragment" eSuperTypes="#//Fragment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="showRatingOption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="showCommentOption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="showCallOption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="showNavigationOption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="showAddCommentOption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="showAddToBookmarkOption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Api">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="BaseAddress"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseAddress" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="http://medvisit.ir/"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="linkAddress" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="/API_UINAV/hiIranApi/public/..."/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasResItem" lowerBound="1"
+        upperBound="-1" eType="#//ResponseItem" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasReqItem" lowerBound="1"
+        upperBound="-1" eType="#//RequestItem" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Theme">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorPrimaryDark" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="#8E24AA"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorPrimary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="#6A1B9A"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorAccent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="#C2185B"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="MyTheme"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResponseItem">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="responseKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="responseType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="notAvailable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Map">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="apiKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="AIzaSyCQ2IuVejeAjpoZA9w-d9IJ14xcoAy7Yd4"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mapType" eType="#//MapType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bindCardsToPins" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zoomLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="16"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="MyMap"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocationsRecyclerView">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasCV" lowerBound="1" eType="#//CardView"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVertical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CardView">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="layoutFileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="?.xml"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasCardItem" lowerBound="1"
+        upperBound="-1" eType="#//CardItems" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkTo" eType="#//Fragment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CardItems">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//cardItemTypes"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectTo" eType="#//ResponseItem"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MapType">
+    <eLiterals name="googleMap"/>
+    <eLiterals name="bingMap"/>
+    <eLiterals name="openLayer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="loginFragment" eSuperTypes="#//Fragment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="generateEmailValidationCode"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="generatePhoneNumberValidationCode"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RequestItem">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requestKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requestType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="cardItemTypes">
+    <eLiterals name="ImageView"/>
+    <eLiterals name="TextView"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubCategoryTabbar">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectedTabColor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultTabColor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasTabs" lowerBound="1"
+        eType="#//Tab" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasAPi" eType="#//Api"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tab">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectsTo" eType="#//ResponseItem"/>
+  </eClassifiers>
+</ecore:EPackage>

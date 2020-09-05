@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="c.medvisit.com.medvisit.shopActivity">
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="0dp"
+                android:layout_height="240dp"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@color/md_white_1000" />
+
+            <com.daimajia.slider.library.SliderLayout
+                android:id="@+id/shop_slider"
+                android:layout_width="0dp"
+                android:layout_height="175dp"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="title"
+                android:textColor="@color/md_black_1000"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView"
+                android:layout_marginRight="16dp"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <RatingBar
+                style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                android:numStars="5"
+                android:stepSize="0.1"
+                android:rating="2.7"
+                android:layoutDirection="rtl"
+                android:id="@+id/ratingBar"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="9dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView"
+                android:layout_marginRight="16dp"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100 comments"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView"
+                android:layout_marginRight="100dp"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+
+            <TextView
+                android:textColor="@color/md_black_1000"
+                android:textSize="13sp"
+                android:clickable="true"
+                android:background="@color/md_white_1000"
+                android:foreground="?attr/selectableItemBackground"
+                android:text=""
+                android:padding="8dp"
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+            <LinearLayout
+                android:showDividers="middle"
+                android:divider="?android:attr/listDivider"
+                android:dividerPadding="8dp"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:id="@+id/linearLayout"
+                app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                <android.support.v7.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="0dp"
+                    android:id="@+id/shop_sendComment"
+                    app:cardBackgroundColor="@color/material_drawer_background"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:layout_height="match_parent">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.mikepenz.iconics.view.IconicsImageView
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="12dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="top"
+                            app:iiv_color="@color/md_blue_grey_500"
+                            app:iiv_icon="@string/faw_comment"
+                            />
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_gravity="bottom"
+                            android:text="add comment"
+                            android:textSize="12sp"
+                            android:textColor="@color/md_black_1000"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp" />
+
+                    </FrameLayout>
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    app:cardElevation="0dp"
+                    android:id="@+id/shop_call"
+                    app:cardBackgroundColor="@color/material_drawer_background"
+                    app:cardCornerRadius="0dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:layout_height="match_parent">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.mikepenz.iconics.view.IconicsImageView
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="12dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="top"
+                            app:iiv_color="@color/md_blue_grey_500"
+                            app:iiv_icon="@string/faw_phone"
+                            />
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_gravity="bottom"
+                            android:text="call"
+                            android:textColor="@color/md_black_1000"
+                            android:textSize="12sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp" />
+
+                    </FrameLayout>
+
+                </android.support.v7.widget.CardView>
+                
+                <android.support.v7.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    app:cardElevation="0dp"
+                    android:id="@+id/addToBookMark"
+                    app:cardBackgroundColor="@color/material_drawer_background"
+                    app:cardCornerRadius="0dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:layout_height="match_parent">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.mikepenz.iconics.view.IconicsImageView
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="12dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="top"
+                            app:iiv_color="@color/md_blue_grey_500"
+                            app:iiv_icon="@string/faw_bookmark"
+                            />
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_gravity="bottom"
+                            android:text="addToBookMark"
+                            android:textColor="@color/md_black_1000"
+                            android:textSize="12sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp" />
+
+                    </FrameLayout>
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    app:cardElevation="0dp"
+                    android:id="@+id/showComment"
+                    app:cardBackgroundColor="@color/material_drawer_background"
+                    app:cardCornerRadius="0dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:layout_height="match_parent">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.mikepenz.iconics.view.IconicsImageView
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="12dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="top"
+                            app:iiv_color="@color/md_blue_grey_500"
+                            app:iiv_icon="@string/faw_comments"
+                            />
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_gravity="bottom"
+                            android:text="showComment"
+                            android:textColor="@color/md_black_1000"
+                            android:textSize="12sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp" />
+
+                    </FrameLayout>
+
+                </android.support.v7.widget.CardView>
+                
+                
+
+            </LinearLayout>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="0dp"
+                app:cardElevation="0dp"
+                app:cardCornerRadius="0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:id="@+id/shop_mapView"
+                android:layout_height="140dp">
+
+                <com.google.android.gms.maps.MapView
+                    android:scrollingCache="false"
+                    android:id="@+id/shop_mapVieww"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/cardview_light_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintTop_toTopOf="@+id/shop_mapView"
+                android:layout_marginTop="110dp"
+                >
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textColor="@color/md_black_1000"
+                        android:id="@+id/shop_address"
+                        android:textSize="13sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="40dp"
+                        android:gravity="right|center_vertical" />
+
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="8dp"
+                        app:iiv_color="@color/md_blue_grey_400"
+                        app:iiv_icon="@string/faw_address_book" />
+
+
+                </FrameLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                app:cardCornerRadius="0dp"
+                app:cardBackgroundColor="@color/cardview_light_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintTop_toTopOf="@+id/shop_mapView"
+                android:layout_marginTop="150dp"
+                app:cardElevation="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/shop_phoneNumber"
+                        android:textColor="@color/md_black_1000"
+                        android:text="testttt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="40dp"
+                        android:gravity="right|center_vertical" />
+
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="8dp"
+                        app:iiv_color="@color/md_blue_grey_400"
+                        app:iiv_icon="@string/faw_phone_square" />
+
+
+                </FrameLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                app:cardCornerRadius="0dp"
+                app:cardBackgroundColor="@color/cardview_light_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintTop_toTopOf="@+id/shop_mapView"
+                android:layout_marginTop="190dp"
+                android:layout_marginBottom="4dp"
+                app:cardElevation="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textColor="@color/md_black_1000"
+                        android:id="@+id/shop_openingTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="40dp"
+                        android:gravity="right|center_vertical" />
+
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="8dp"
+                        app:iiv_color="@color/md_blue_grey_500"
+                        app:iiv_icon="@string/faw_times" />
+
+
+                </FrameLayout>
+
+            </android.support.v7.widget.CardView>
+            
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

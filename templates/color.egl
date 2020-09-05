@@ -1,0 +1,7 @@
+[% var theme = Theme.all.first ; %]
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">[%=theme.colorPrimary%]</color>
+    <color name="colorPrimaryDark">[%=theme.colorPrimaryDark%]</color>
+    <color name="colorAccent">[%=theme.colorAccent%]</color>
+</resources>
